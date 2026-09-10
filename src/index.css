@@ -32,8 +32,16 @@
   --red: #ff2d2d;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -42,6 +50,9 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   transition: background-color 0.2s ease, color 0.2s ease;
   margin: 0;
+  overflow-x: hidden;
+  min-width: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
@@ -50,11 +61,22 @@ body {
 }
 
 .shadow-brutal {
-  box-shadow: 6px 6px 0 var(--border);
+  box-shadow: 4px 4px 0 var(--border);
+}
+@media (min-width: 640px) {
+  .shadow-brutal {
+    box-shadow: 6px 6px 0 var(--border);
+  }
 }
 .shadow-brutal-hover:hover {
-  box-shadow: 10px 10px 0 var(--border);
-  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--border);
+  transform: translate(-2px, -2px);
+}
+@media (min-width: 640px) {
+  .shadow-brutal-hover:hover {
+    box-shadow: 10px 10px 0 var(--border);
+    transform: translate(-3px, -3px);
+  }
 }
 
 @keyframes marquee {
@@ -82,19 +104,11 @@ body {
   outline-offset: 2px;
 }
 
-/* Ensure fonts load */
-@font-face {
-  font-family: "Syne";
-  font-style: normal;
-  font-weight: 700 800;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/syne/v22/8vIS7w4qzmVxsWxjBZRjr0FKCtZdNLc.woff2") format("woff2");
+img, video, svg {
+  max-width: 100%;
+  height: auto;
 }
 
-@font-face {
-  font-family: "Space Grotesk";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUsj.woff2") format("woff2");
+button, a {
+  -webkit-tap-highlight-color: transparent;
 }
