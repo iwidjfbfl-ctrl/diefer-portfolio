@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-text: var(--text);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-yellow: var(--yellow);
+  --color-red: var(--red);
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+}
+
+:root {
+  --bg: #faf9f5;
+  --text: #0a0a0a;
+  --card: #ffffff;
+  --border: #0a0a0a;
+  --muted: #e5e5e0;
+  --yellow: #ffe600;
+  --red: #ff2d2d;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --text: #faf9f5;
+  --card: #111111;
+  --border: #faf9f5;
+  --muted: #1a1a1a;
+  --yellow: #ffe600;
+  --red: #ff2d2d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin: 0;
+}
+
+::selection {
+  background: var(--yellow);
+  color: #0a0a0a;
+}
+
+.shadow-brutal {
+  box-shadow: 6px 6px 0 var(--border);
+}
+.shadow-brutal-hover:hover {
+  box-shadow: 10px 10px 0 var(--border);
+  transform: translate(-3px, -3px);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.vertical-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* Ensure fonts load */
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700 800;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/syne/v22/8vIS7w4qzmVxsWxjBZRjr0FKCtZdNLc.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUsj.woff2") format("woff2");
+}
